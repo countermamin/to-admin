@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     const [formData, setFormData] = useState([]);
+    const [successMessage, setSuccessMessage] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -35,6 +36,10 @@ function App() {
             );
             console.log('Data submitted successfully!');
             console.log('Response:', response.data);
+            setSuccessMessage(true);
+            setTimeout(() => {
+                setSuccessMessage(false);
+            }, 2000);
         } catch (error) {
             console.error('Error submitting data:', error);
         }
@@ -52,6 +57,11 @@ function App() {
 
     return (
         <div className="App">
+            {successMessage && (
+                <div className="success-message show">
+                    Успешно сохранено
+                </div>
+            )}
             {formData.map((formInfo) => (
                 <Card key={formInfo.pk} style={{ width: '18rem', margin: '2rem' }}>
                     <Card.Body>

@@ -2,3 +2,21 @@
     display: flex;
     flex-wrap: wrap;
 }
+.success-message {
+    position: fixed;
+    top: 50px; /* Расположение от верхнего края страницы */
+    left: 50%; /* Положение по горизонтали */
+    transform: translateX(-50%); /* Центрирование по горизонтали */
+    background-color: #4CAF50; /* Цвет фона */
+    color: white; /* Цвет текста */
+    padding: 15px 20px; /* Внутренние отступы */
+    border-radius: 5px; /* Скругление углов */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Тень */
+    z-index: 999; /* Выше других элементов */
+    opacity: 0; /* Начальная прозрачность */
+    transition: opacity 0.3s ease; /* Плавное появление/исчезновение */
+}
+
+.success-message.show {
+    opacity: 1; /* Показать сообщение */
+}
